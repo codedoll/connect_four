@@ -1,2 +1,13 @@
-console.log($('#1'))
-console.log("hi")
+$( document ).ready(function() {
+
+$('div').each(function(index) {
+
+	var $idValue = $( this ).attr('id');
+
+	$(this).html($idValue)
+
+
+});
+
+
+});
