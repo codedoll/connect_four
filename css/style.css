@@ -1,6 +1,7 @@
 div {
 	border: solid .5px black;	
 	width: 50px; height: 50px;
+	border-radius: 50%;
 	color: #fff;
 	font-size: 14px;
 }
@@ -10,9 +11,9 @@ section {
 }
 
 .clicked {
-		color: red;
-	background-color: red;
-	  pointer-events: none;
+	color: #ccc;
+	/*background-color: red;*/
+	pointer-events: none;
 }
 
 .noclick{
@@ -22,4 +23,12 @@ section {
 
 .clickable {
 	pointer-events: auto;
+}
+
+.p1Click {
+	background-color: blue;
+}
+
+.p2Click {
+	background-color: yellow;
 }

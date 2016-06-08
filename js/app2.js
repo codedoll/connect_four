@@ -66,7 +66,7 @@ function checkIfLast () {
 
 function getTheArray($firstChar) {
 
-	var $yes = $(`div[id^="A`);
+	var $yes = $(`div[id^="${$firstChar}"]`);
 
 	$yes.each(function() {
 		if (!$(this).hasClass('clicked')) {
