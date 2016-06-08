@@ -11,6 +11,10 @@ section {
 	display: inline-block;
 }
 
+board {
+	display: flex;
+}
+
 .clicked {
 	color: #ccc;
 	/*background-color: red;*/
