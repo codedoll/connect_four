@@ -7,7 +7,8 @@ $(document).ready(function() {
 
 
 var p1Click = [];
-var p2Click = [];
+var p2Click = [];   
+
 var turnTracker = 0;
 
 
@@ -44,9 +45,9 @@ function activateTop() {
 }
 
 
+    
 function nowClickable() {
-var p1Score = 0;
-var p2Score = 0;
+
     var $this;
     $('div').on("click", function(e) {
 
@@ -58,15 +59,17 @@ var p2Score = 0;
         if (turnTracker%2==0) {
             $(this).addClass('p2Click') 
             p2Click.push($(this).attr('id'))
-            countScores(p2Score, p2Click)
-            console.log(`p2Score is ${p2Score}`)           
+            
+            var $p2Score = $('#p2Score')
+            countScores($p2Score, p2Click)
         }
         
         else {
             $(this).addClass('p1Click')
             p1Click.push($(this).attr("id"))
-            countScores(p1Score,p1Click)
-            console.log(`p1Score is ${p1Score}`)
+            
+            var $p1Score = $('#p1Score')
+          countScores($p1Score,p1Click)
         }
 
         highlightGuyOnBottom($this);
@@ -76,37 +79,10 @@ var p2Score = 0;
 }
 
 
-// function countScores(pScore,pClick) {
-//     var connect4 = 0;
-//     var countConnect = 1;
-//     var countConnect2 = 1;
-
-//     console.log(pClick)
-
-//         for (var i = 1; i < pClick.length; i++) {
-//             var a = pClick[i];
-//             console.log("char is " + a.charAt(0))
-//             var b = pClick[i-1]
-//             console.log(b)
-
-//             if (a.charAt(0)==b.charAt(0)){
-//                 countConnect++;
-//                 console.log(countConnect + " is countConnect")
-//             }
-
-//             if (countConnect>3) {
-//                 pScore++;
-//                 console.log(pScore +" pScore is")
-//             }
-
-//         }
-// }
-
-
 function highlightGuyOnBottom($this) {
     var arr = [];
 
-    console.log($this)
+    // console.log($this)
 
     var $oneLetter = $this.slice(0, -1)
 
@@ -132,3 +108,27 @@ function highlightGuyOnBottom($this) {
 
 }
 
+function countScores($pScore,pClick) {
+    var connect4 = 0;
+    var countConnect = 0;
+    var countConnect2 = 0;
+    var pScore = 0
+
+    var arr = pClick.sort();
+
+        var x=0;
+
+    for (var i = 0; i < arr.length; i++) {
+        
+        x++;//having trouble evaluating AAAA, BBBB
+
+        if (x>3) {
+            $($pScore).html(x/4)
+        }
+
+    }
+            console.log(arr)
+
+            console.log(x)
+
+}
