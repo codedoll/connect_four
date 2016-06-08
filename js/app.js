@@ -56,12 +56,17 @@ function nowClickable() {
             // console.log("counter%2==0")
             //console.log($(this))
            $(this).addClass('p1Click')
+           p1Click.push($(this).attr('id'))
+           console.log("p1Click: "+ p1Click)
 
         }
         
         else {
             // console.log("!counter%2==0")
             $(this).addClass('p2Click') 
+            p2Click.push($(this).attr("id"))
+            console.log("p2Click :" + p2Click)
+
         }
 
         highlightGuyOnBottom($this);
