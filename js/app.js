@@ -5,9 +5,11 @@ $(document).ready(function() {
 
 })
 
+
 var p1Click = [];
 var p2Click = [];
-var counter = 0;
+var turnTracker = 0;
+
 
 function makeDivs() {
 
@@ -43,38 +45,62 @@ function activateTop() {
 
 
 function nowClickable() {
+var p1Score = 0;
+var p2Score = 0;
     var $this;
     $('div').on("click", function(e) {
 
         $(this).addClass('clicked')
         $this = $(this).attr('id')
 
-        counter++;
-        // console.log(counter)
+        turnTracker++;
 
-        if (counter%2==0) {
-            // console.log("counter%2==0")
-            //console.log($(this))
-           $(this).addClass('p1Click')
-           p1Click.push($(this).attr('id'))
-           console.log("p1Click: "+ p1Click)
-
+        if (turnTracker%2==0) {
+            $(this).addClass('p2Click') 
+            p2Click.push($(this).attr('id'))
+            countScores(p2Score, p2Click)
+            console.log(`p2Score is ${p2Score}`)           
         }
         
         else {
-            // console.log("!counter%2==0")
-            $(this).addClass('p2Click') 
-            p2Click.push($(this).attr("id"))
-            console.log("p2Click :" + p2Click)
-
+            $(this).addClass('p1Click')
+            p1Click.push($(this).attr("id"))
+            countScores(p1Score,p1Click)
+            console.log(`p1Score is ${p1Score}`)
         }
 
         highlightGuyOnBottom($this);
 
-
     });
 
 }
+
+
+// function countScores(pScore,pClick) {
+//     var connect4 = 0;
+//     var countConnect = 1;
+//     var countConnect2 = 1;
+
+//     console.log(pClick)
+
+//         for (var i = 1; i < pClick.length; i++) {
+//             var a = pClick[i];
+//             console.log("char is " + a.charAt(0))
+//             var b = pClick[i-1]
+//             console.log(b)
+
+//             if (a.charAt(0)==b.charAt(0)){
+//                 countConnect++;
+//                 console.log(countConnect + " is countConnect")
+//             }
+
+//             if (countConnect>3) {
+//                 pScore++;
+//                 console.log(pScore +" pScore is")
+//             }
+
+//         }
+// }
 
 
 function highlightGuyOnBottom($this) {
@@ -84,7 +110,7 @@ function highlightGuyOnBottom($this) {
 
     var $oneLetter = $this.slice(0, -1)
 
-    $(`div[id*='${$oneLetter}']`).each(function(index) {
+    $(`div[id*='${$oneLetter}']`).each(function(index) { //http://stackoverflow.com/questions/7841048/how-to-check-if-an-element-does-not-have-a-specific-class
 
         // console.log($(this))
         if (!$(this).hasClass("clicked")) {
@@ -92,10 +118,10 @@ function highlightGuyOnBottom($this) {
         }
 
         if ($(this).hasClass("clickable")) {
-			$(this).removeClass("clickable")
-        }
+         $(this).removeClass("clickable")
+     }
 
-    })
+ })
 
     // console.log(arr)
     // console.log(arr[arr.length - 1])
@@ -103,7 +129,6 @@ function highlightGuyOnBottom($this) {
     var lastElement = arr[arr.length - 1]
     $(`#${lastElement}`).addClass('clickable')
     $(`#${lastElement}`).removeClass('noclick')
-
 
 }
 
