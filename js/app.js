@@ -71,5 +71,7 @@ function highlightGuyOnBottom($this) {
     console.log(arr[arr.length - 1])
     var lastElement = arr[arr.length - 1]
     $(`#${lastElement}`).addClass('clickable')
+
+    $(`#${lastElement}`).removeClass('noclick')
 }
 
