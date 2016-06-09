@@ -61,7 +61,7 @@ function nowClickable() {
             p2Click.push($(this).attr('id'))
             
             var $p2Score = $('#p2Score')
-			countScores($p2Score, p2Click)
+			checkArray($p2Score,p2Click)
             $('#turn').html('blue')
 
         }
@@ -73,7 +73,7 @@ function nowClickable() {
             var $p1Score = $('#p1Score')
 			$('#turn').html('red')
 
-          	countScores($p1Score,p1Click)
+          	checkArray($p1Score,p1Click)
         }
 
         highlightGuyOnBottom($this);
@@ -113,30 +113,23 @@ function highlightGuyOnBottom($this) {
 }
 
 
+function checkArray ($pScore,pClick) {
+    if (pClick.length>20){
+        countScores($pScore,pClick)
+    }
+}
 
 
 
 function countScores($pScore,pClick) {
-    var connect4 = 0;
-    var countConnect = 0;
-    var countConnect2 = 0;
-    var pScore = 0
+
 
     var arr = pClick.sort();
-    console.log(pClick)
+    console.log(arr)
 
         var x=0;
 
-    for (var i = 1; i < arr.length; i++) {
-        
-      
-        // if (x>3) {
-        //     $($pScore).html(x/4)
-        // }
+        $($pScore).html("hi")
 
-    }
-            // console.log(arr)
-
-            // console.log(x)
 
 }

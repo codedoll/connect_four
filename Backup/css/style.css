@@ -52,10 +52,9 @@ board {
     /*background-image: url(http://funnygifsbox.com/wp-content/uploads/2014/09/07ff243f6c217b7215255ae0ceced086.gif);*/
     background-color: red;
     box-shadow:0 0 10px rgb(250, 210, 196);
-    box-sizing: border-box;
-    border: 1px;
     border-radius: 50%;
-
+    -moz-animation: pOne 90s infinite linear;
+    -webkit-animation: pOne 90s infinite linear;
 }
 
 p {
@@ -66,11 +65,9 @@ p {
 .p1Click {
     box-shadow:0 0 10px rgb(0, 116, 255);
     background-color: blue;
-    border-top: 10px solid rgba(0, 243, 255, 0.48);
-    box-sizing: border-box;
+    border-top: 1px solid rgba(0, 243, 255, 0.48);
     -moz-animation: pOne 90s infinite linear;
     -webkit-animation: pOne 90s infinite linear;
-    border-radius: 50%;
 }
 
 
@@ -101,10 +98,6 @@ p {
     padding: 1% 0;
 }
 
-.p1Click, .p2Click, .clicked, .noclick{
-    padding: 1px 1px;
-    margin: 1px 1px;
-}
 
 p {
     display: inline-block;
