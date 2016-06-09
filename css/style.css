@@ -1,46 +1,112 @@
-div, #divs {
-    border: dotted 1px #777;
+body {
+    font-family: 'Roboto Slab', serif;
+}
+p {
+    display: inline;
+    text-align: center;
+}
+div {
+    border: dotted 1px rgba(119, 119, 119, 0.45);
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    color: #ccc;
-    font-size: 15px;
+    color: #fff;
+    /*font-size: 10px;*/
 }
 
 section {
-	display: inline-block;
+    display: inline-block;
+
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+ color: #310080;
 }
 
 board {
     display: flex;           /* establish flex container */
     /*flex-direction: column;   make main axis vertical */
-    justify-content: center;
+    justify-content: center;  center items vertically, in this case 
     align-items: center; 
 }
 
 .clicked {
-	color: #ccc;
-	/*background-color: red;*/
-	pointer-events: none;
+    color: #ccc;
+    /*background-color: red;*/
+    pointer-events: none;
 }
 
 .noclick{
-	pointer-events: none;
+    pointer-events: none;
 
 }
 
 .clickable {
-	pointer-events: auto;
+    pointer-events: auto;
 }
 
-.p1Click {
-	background-color: blue;
-}
+
 
 .p2Click {
-	background-color: yellow;
+    /*background-image: url(http://funnygifsbox.com/wp-content/uploads/2014/09/07ff243f6c217b7215255ae0ceced086.gif);*/
+    background-color: red;
+    box-shadow:0 0 10px rgb(250, 210, 196);
+    box-sizing: border-box;
+    border: 1px;
+    border-radius: 50%;
+
+}
+
+
+
+/*/http://www.alessioatzeni.com/blog/css3-loading-animation-loop//*/
+.p1Click {
+    box-shadow:0 0 10px rgb(0, 116, 255);
+    background-color: blue;
+    border-top: 10px solid rgba(0, 243, 255, 0.48);
+    box-sizing: border-box;
+    -moz-animation: pOne 90s infinite linear;
+    -webkit-animation: pOne 90s infinite linear;
+    border-radius: 50%;
+}
+
+
+@-webkit-keyframes pOne {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    };
+}
+
+@-moz-keyframes pOne {
+    0% {
+        -moz-transform: rotate(0deg);
+    }
+
+    100% {
+        -moz-transform: rotate(360deg);
+    };
+}
+
+
+#whoseturn {
+    display: block;
+    text-align: center;
+    padding: 1% 0;
+}
+
+.p1Click, .p2Click, .clicked, .noclick {
+    padding: 1px 1px;
+    margin: 1px 1px;
 }
 
 p {
- 
+    display: inline-block;
 }

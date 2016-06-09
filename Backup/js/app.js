@@ -61,7 +61,9 @@ function nowClickable() {
             p2Click.push($(this).attr('id'))
             
             var $p2Score = $('#p2Score')
-            countScores($p2Score, p2Click)
+			countScores($p2Score, p2Click)
+            $('#turn').html('blue')
+
         }
         
         else {
@@ -69,7 +71,9 @@ function nowClickable() {
             p1Click.push($(this).attr("id"))
             
             var $p1Score = $('#p1Score')
-          countScores($p1Score,p1Click)
+			$('#turn').html('red')
+
+          	countScores($p1Score,p1Click)
         }
 
         highlightGuyOnBottom($this);
