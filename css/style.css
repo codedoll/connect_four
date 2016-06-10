@@ -7,11 +7,12 @@ p {
 }
 div {
     border: dotted 1px rgba(119, 119, 119, 0.45);
+    box-sizing: border-box;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     color: #fff;
-    /*font-size: 10px;*/
+    font-size: 1px;
 }
 
 section {
@@ -21,10 +22,16 @@ section {
 
 header {
     text-align: center;
+        padding: 0 0;
 }
 
 h1 {
- color: #310080;
+    color: rgba(0, 0, 0, 0.61);
+    font-size: 3em;
+    -webkit-text-stroke: 1px black;
+    padding: 0 0;
+    margin: 0 0;
+
 }
 
 board {
@@ -53,8 +60,8 @@ board {
 
 .p2Click {
     /*background-image: url(http://funnygifsbox.com/wp-content/uploads/2014/09/07ff243f6c217b7215255ae0ceced086.gif);*/
-    background-color: red;
-    box-shadow:0 0 10px rgb(250, 210, 196);
+    background-color: #FF5722;
+    box-shadow:0 0 10px rgba(245, 63, 0, 0.76);
     box-sizing: border-box;
     border: 1px;
     border-radius: 50%;
@@ -67,7 +74,7 @@ board {
 .p1Click {
     box-shadow:0 0 10px rgb(0, 116, 255);
     background-color: blue;
-    border-top: 10px solid rgba(0, 243, 255, 0.48);
+    border-top: 2px solid rgba(0, 243, 255, 0.48);
     box-sizing: border-box;
     -moz-animation: pOne 90s infinite linear;
     -webkit-animation: pOne 90s infinite linear;
@@ -102,11 +109,21 @@ board {
     padding: 1% 0;
 }
 
-.p1Click, .p2Click, .clicked, .noclick {
-    padding: 1px 1px;
-    margin: 1px 1px;
-}
 
 p {
     display: inline-block;
+    text-align: center;
+}
+
+score {
+    text-align: center;
+    display: inherit;
+}
+
+.blue {
+    color: blue;
+}
+
+.red {
+    color: red;
 }

@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 
 var p1Click = [];
-var p2Click = [];   
+var p2Click = [];
 
 var turnTracker = 0;
 
@@ -20,8 +20,8 @@ function makeDivs() {
         $(this).html($idValue) //outputs it on html so that I can see the id of the div
         $(this).addClass('noclick')
 
-        // 	$(this).on("click", function(e) {
-        // 		$(this).addClass('clicked')
+        //  $(this).on("click", function(e) {
+        //      $(this).addClass('clicked')
         // });
 
     })
@@ -45,7 +45,7 @@ function activateTop() {
 }
 
 
-    
+
 function nowClickable() {
 
     var $this;
@@ -56,24 +56,25 @@ function nowClickable() {
 
         turnTracker++;
 
-        if (turnTracker%2==0) {
-            $(this).addClass('p2Click') 
+        if (turnTracker % 2 == 0) {
+            $(this).addClass('p2Click')
             p2Click.push($(this).attr('id'))
-            
-            var $p2Score = $('#p2Score')
-			countScores($p2Score, p2Click)
-            $('#turn').html('blue')
 
-        }
-        
-        else {
+            var $p2Score = $('#p2Score')
+            countScores($p2Score, p2Click)
+            $('#turn').html('blue')
+            $('#turn').addClass('blue')
+            $('#turn').removeClass('red')
+
+        } else {
             $(this).addClass('p1Click')
             p1Click.push($(this).attr("id"))
-            
-            var $p1Score = $('#p1Score')
-			$('#turn').html('red')
 
-          	countScores($p1Score,p1Click)
+            var $p1Score = $('#p1Score')
+            $('#turn').html('red')
+            $('#turn').addClass('red')
+
+            countScores($p1Score, p1Click)
         }
 
         highlightGuyOnBottom($this);
@@ -98,10 +99,10 @@ function highlightGuyOnBottom($this) {
         }
 
         if ($(this).hasClass("clickable")) {
-         $(this).removeClass("clickable")
-     }
+            $(this).removeClass("clickable")
+        }
 
- })
+    })
 
     // console.log(arr)
     // console.log(arr[arr.length - 1])
@@ -113,30 +114,83 @@ function highlightGuyOnBottom($this) {
 }
 
 
+function countScores($pScore, pClick) {
+    if (pClick.length > 20) {
+        countScores2($pScore, pClick)
+    }
+}
 
 
+function countScores2($pScore, arr) {
+    arr = arr.sort();
+    var x = [];
+    var y = [];
 
-function countScores($pScore,pClick) {
-    var connect4 = 0;
-    var countConnect = 0;
-    var countConnect2 = 0;
-    var pScore = 0
+    console.log(arr)
+    console.log(arr.indexOf('C1'));
+    var indexOfFirstOfFour = arr.indexOf('C1');
+    console.log(arr.slice(indexOfFirstOfFour, (indexOfFirstOfFour + 4)))
 
-    var arr = pClick.sort();
-    console.log(pClick)
+    for (var i = 0; i < arr.length; i++) {
+        // console.log(arr[i])
 
-        var x=0;
+        var a = arr[i];
+        var aa = a.charAt(0)
+        var bb = a.charAt(1)
 
-    for (var i = 1; i < arr.length; i++) {
-        
-      
-        // if (x>3) {
-        //     $($pScore).html(x/4)
-        // }
+        x.push(aa)
+        y.push(bb)
+        y = y.map(Number);
+    }
+    console.log(x)
+    console.log(y)
+
+    var counter = 0;
+    var array1 = [];
+    var r = 0;
+
+
+    for (var i = 0; i < x.length - 3; i++) {
+
+        // console.log(x[i],x[i+1],x[i+2],x[i+2])
+
+        if (x[i] === x[i + 1] && x[i + 1] === x[i + 2] && x[i + 2] === x[i + 3]) {
+
+            var yy = y[i + 1]
+            var yyy = y[i + 2]
+            var yyyy = y[i + 3]
+
+            if (y[i] + 1 == yy && y[i + 1] + 1 == yyy && y[i + 2] + 1 == yyyy) {
+
+                console.log("YOU GOT IT")
+                counter++;
+                $($pScore).html(counter);
+
+                // console.log(y[i]+1,yy)
+                // console.log(y[i+1]+1,yyy)
+                // console.log(y[i+2]+1,yyyy)
+                //  console.log(y[i],y[i+1],y[i+2],y[i+3])
+            }
+        }
+
 
     }
-            // console.log(arr)
 
-            // console.log(x)
+    // DEREK NOTES
+    // look at first element at postion 0
+    // if position 0 + 1 === positon 0, move to the next
+    //  if positon1 === positon 1 + 1
+
+    //      look at first element at postion 0
+    // if position 0 + 1 != positon 0 exit loop,
+    //  move to next index
+
+    // for (var i = 0; i < playerpicks-3; i++) {
+    //  if position 0 + 1 === positon 0 && if position 0 + 2 === positon 0
+    // }
+
+
+    // console.log(arr)
+
 
 }
