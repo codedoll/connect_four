@@ -62,17 +62,21 @@ function nowClickable() {
 
             var $p2Score = $('#p2Score')
             countScores($p2Score, p2Click)
+             $('#turn').removeClass('red')
+
             $('#turn').html('blue')
             $('#turn').addClass('blue')
-            $('#turn').removeClass('red')
 
         } else {
             $(this).addClass('p1Click')
             p1Click.push($(this).attr("id"))
 
             var $p1Score = $('#p1Score')
+                        $('#turn').removeClass('blue')
+
             $('#turn').html('red')
             $('#turn').addClass('red')
+
 
             countScores($p1Score, p1Click)
         }
@@ -127,9 +131,6 @@ function countScores2($pScore, arr) {
     var y = [];
 
     console.log(arr)
-    console.log(arr.indexOf('C1'));
-    var indexOfFirstOfFour = arr.indexOf('C1');
-    console.log(arr.slice(indexOfFirstOfFour, (indexOfFirstOfFour + 4)))
 
     for (var i = 0; i < arr.length; i++) {
         // console.log(arr[i])
@@ -164,12 +165,25 @@ function countScores2($pScore, arr) {
             if (y[i] + 1 == yy && y[i + 1] + 1 == yyy && y[i + 2] + 1 == yyyy) {
 
                 counter++;
-                $($pScore).html(counter);
+                console.log(arr)
 
+                if (arr===p1Click){
+                $($pScore).html("<span class='blue fade-in won'>you won blue</span>");
+                $('div').removeClass('clickable nodisplay');
+                $('div').addClass("noclick")
+                }
+                else if (arr===p2Click) {
+                $($pScore).html("<span class='red fade-in won'>you won red</span>");
+                $('div').removeClass('clickable nodisplay');
+                $('div').addClass("noclick")
+
+                }
                 // console.log(y[i]+1,yy)
                 // console.log(y[i+1]+1,yyy)
                 // console.log(y[i+2]+1,yyyy)
                 //  console.log(y[i],y[i+1],y[i+2],y[i+3])
+                $('#whoseturn').html('congratulations!');
+
             }
 
         }
