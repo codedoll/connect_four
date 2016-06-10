@@ -183,7 +183,8 @@ function countScores2($pScore, arr) {
             console.log(compressed)
             
             if ("ABCDEF".indexOf(compressed) >= 0) {
-                    alert("hi")
+                counter++
+                $($pScore).html(counter);
             }
 
 
