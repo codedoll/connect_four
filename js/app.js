@@ -35,10 +35,13 @@ function activateTop() {
     // console.log($("div[id*='6']"))
     var $a = $("div[id*='6']");
 
+    if (!$('#p2Score    ').hasClass('congratulations')){
+
     $($a).each(function(index) {
         $(this).removeClass('noclick')
     })
 
+    }   
     nowClickable();
 
 
@@ -62,7 +65,7 @@ function nowClickable() {
 
             var $p2Score = $('#p2Score')
             countScores($p2Score, p2Click)
-             $('#turn').removeClass('red')
+            $('#turn').removeClass('red')
 
             $('#turn').html('blue')
             $('#turn').addClass('blue')
@@ -93,7 +96,7 @@ function highlightGuyOnBottom($this) {
 
     // console.log($this)
 
-    var $oneLetter = $this.slice(0, -1)
+    var $oneLetter = $this.slice(0, -2)
 
     $(`div[id*='${$oneLetter}']`).each(function(index) { //http://stackoverflow.com/questions/7841048/how-to-check-if-an-element-does-not-have-a-specific-class
 
@@ -125,11 +128,11 @@ function countScores($pScore, pClick) {
 }
 
 
-function countScores2($pScore, arr) {
-    arr = arr.sort();
+function countScores2($pScore, array) {
+    var arr = array.sort();
     var x = [];
     var y = [];
-
+    var z = [];
     console.log(arr)
 
     for (var i = 0; i < arr.length; i++) {
@@ -138,13 +141,21 @@ function countScores2($pScore, arr) {
         var a = arr[i];
         var aa = a.charAt(0)
         var bb = a.charAt(1)
+        var cc = a.charAt(2)
 
         x.push(aa)
         y.push(bb)
+        z.push(cc)
+
         y = y.map(Number);
+        z = z.map(Number);
+
     }
-    console.log(x)
-    console.log(y)
+    
+    console.log("x array: " + x)
+    console.log("y array: " + y)
+    console.log("z array: " + z)
+
 
     var counter = 0;
     var array1 = [];
@@ -160,54 +171,58 @@ function countScores2($pScore, arr) {
 
         if (x[i] === x[i + 1] && x[i + 1] === x[i + 2] && x[i + 2] === x[i + 3]) {
 
-
-
             if (y[i] + 1 == yy && y[i + 1] + 1 == yyy && y[i + 2] + 1 == yyyy) {
-
+                
+                $('div').addClass("noclick")
+                $('div').removeClass('clickable nodisplay');
+                removeClickable () 
                 counter++;
                 console.log(arr)
-
-                if (arr===p1Click){
-                $($pScore).html("<span class='blue fade-in won'>you won blue</span>");
-                $('div').removeClass('clickable nodisplay');
-                $('div').addClass("noclick")
-                }
-                else if (arr===p2Click) {
-                $($pScore).html("<span class='red fade-in won'>you won red</span>");
-                $('div').removeClass('clickable nodisplay');
-                $('div').addClass("noclick")
-
-                }
-                // console.log(y[i]+1,yy)
-                // console.log(y[i+1]+1,yyy)
-                // console.log(y[i+2]+1,yyyy)
-                //  console.log(y[i],y[i+1],y[i+2],y[i+3])
-                $('#whoseturn').html('congratulations!');
+                youWon(arr,$pScore)
 
             }
-
         }
 
         else if (y[i] == yy && y[i + 1] == yyy && y[i + 2] == yyyy) {
+            if (z[i] + 1 == z[i+1] && z[i + 1] + 1 == z[i+2] && z[i + 2] + 1 == z[i+3]) {
+                
+                $('div').addClass("noclick")
+                $('div').removeClass('clickable nodisplay');
+                removeClickable () 
+                counter++;
+                youWon(arr,$pScore)
 
-            // console.log("hi" + y[i],yy, y[i + 1], yyy, y[i + 2], yyyy)
-            // console.log(x.join().replace(/,/g, ''))
-
-            var compressed = x.join().replace(/,/g, '');
-            console.log(compressed)
-            
-            if ("ABCDEF".indexOf(compressed) >= 0) {
-                counter++
-                $($pScore).html(counter);
-                compressed = []
-                return compressed;
             }
-
-
-
         }
 
+        // else if (y[i] - 1 == y[i-1] && y[i - 1] - 1 == y[i-2] && y[i - 2] - 1 == y[i-3])  {
+        //     if (z[i] + 1 == z[i+1] && z[i + 1] + 1 == z[i+2] && z[i + 2] + 1 == z[i+3]) {
+        //        alert("YO") 
+        //         // $('div').addClass("noclick")
+        //         // $('div').removeClass('clickable nodisplay');
+        //         // removeClickable () 
+        //         // counter++;
+        //         // youWon(arr,$pScore)
 
+        //     }
+        // }
+
+        // else if (y[i] == yy && y[i + 1] == yyy && y[i + 2] == yyyy) {
+
+        //     // console.log("hi" + y[i],yy, y[i + 1], yyy, y[i + 2], yyyy)
+        //     // console.log(x.join().replace(/,/g, ''))
+
+        //     var compressed = x.join().replace(/,/g, '');
+        //     console.log(compressed)
+            
+        //     if ("ABCDEF".indexOf(compressed) >= 0) {
+        //         counter++
+        //         $($pScore).html(counter);
+        //         compressed = []
+        //         return compressed;
+        //     }
+        // }
+    
     }
 
     // DEREK NOTES
@@ -227,4 +242,31 @@ function countScores2($pScore, arr) {
     // console.log(arr)
 
 
+}
+
+
+function youWon(arr,$pScore) {
+                $('#whoseturn').html('congratulations!');
+
+                if (arr===p1Click){
+                $($pScore).html("<span class='blue fade-in won'>you won blue</span>");
+                $('div').removeClass('clickable nodisplay');
+                removeClickable ()
+                }
+                else if (arr===p2Click) {
+                $($pScore).html("<span class='red fade-in won'>you won red</span>");
+                $('div').removeClass('clickable nodisplay');
+                removeClickable ()
+                }
+                // console.log(y[i]+1,yy)
+                // console.log(y[i+1]+1,yyy)
+                // console.log(y[i+2]+1,yyyy)
+                //  console.log(y[i],y[i+1],y[i+2],y[i+3])
+                
+}
+
+
+
+function removeClickable () {
+    $('body').removeClass('clickable')
 }
