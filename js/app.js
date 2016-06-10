@@ -115,7 +115,7 @@ function highlightGuyOnBottom($this) {
 
 
 function countScores($pScore, pClick) {
-    if (pClick.length > 20) {
+    if (pClick.length > 3) {
         countScores2($pScore, pClick)
     }
 }
@@ -162,7 +162,6 @@ function countScores2($pScore, arr) {
 
             if (y[i] + 1 == yy && y[i + 1] + 1 == yyy && y[i + 2] + 1 == yyyy) {
 
-                console.log("YOU GOT IT")
                 counter++;
                 $($pScore).html(counter);
 

@@ -4,6 +4,7 @@ body {
 p {
     display: inline;
     text-align: center;
+    padding: 0 3px;
 }
 div {
     border: dotted 1px rgba(119, 119, 119, 0.45);
@@ -109,12 +110,6 @@ board {
     padding: 1% 0;
 }
 
-
-p {
-    display: inline-block;
-    text-align: center;
-}
-
 score {
     text-align: center;
     display: inherit;
@@ -122,8 +117,11 @@ score {
 
 .blue {
     color: blue;
+    font-weight: bold;
 }
 
 .red {
     color: red;
+    font-weight: bold;
+
 }
