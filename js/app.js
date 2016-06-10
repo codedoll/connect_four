@@ -151,14 +151,15 @@ function countScores2($pScore, arr) {
 
 
     for (var i = 0; i < x.length - 3; i++) {
-
+            
+            var yy = y[i + 1]
+            var yyy = y[i + 2]
+            var yyyy = y[i + 3]
         // console.log(x[i],x[i+1],x[i+2],x[i+2])
 
         if (x[i] === x[i + 1] && x[i + 1] === x[i + 2] && x[i + 2] === x[i + 3]) {
 
-            var yy = y[i + 1]
-            var yyy = y[i + 2]
-            var yyyy = y[i + 3]
+
 
             if (y[i] + 1 == yy && y[i + 1] + 1 == yyy && y[i + 2] + 1 == yyyy) {
 
@@ -170,6 +171,11 @@ function countScores2($pScore, arr) {
                 // console.log(y[i+2]+1,yyyy)
                 //  console.log(y[i],y[i+1],y[i+2],y[i+3])
             }
+
+        }
+
+        else if (y[i] == yy && y[i + 1] == yyy && y[i + 2] == yyyy) {
+            console.log("hi" + y[i],yy, y[i + 1], yyy, y[i + 2], yyyy)
         }
 
 
