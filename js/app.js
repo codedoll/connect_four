@@ -185,6 +185,8 @@ function countScores2($pScore, arr) {
             if ("ABCDEF".indexOf(compressed) >= 0) {
                 counter++
                 $($pScore).html(counter);
+                compressed = []
+                return compressed;
             }
 
 
