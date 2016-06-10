@@ -141,7 +141,7 @@ function countScores2($pScore, array) {
         var a = arr[i];
         var aa = a.charAt(0)
         var bb = a.charAt(1)
-        var cc = a.charAt(2)
+        var cc = a.substring(a.length-2)
 
         x.push(aa)
         y.push(bb)
@@ -150,11 +150,20 @@ function countScores2($pScore, array) {
         y = y.map(Number);
         z = z.map(Number);
 
+
+        ySort = y.sort();
+        zSort = z.sort();
+
+
     }
     
     console.log("x array: " + x)
     console.log("y array: " + y)
     console.log("z array: " + z)
+
+    console.log("ySort: " + ySort)
+    console.log("zSort: " + zSort)
+
 
 
     var counter = 0;
@@ -167,6 +176,10 @@ function countScores2($pScore, array) {
             var yy = y[i + 1]
             var yyy = y[i + 2]
             var yyyy = y[i + 3]
+
+            var yySort = ySort[i + 1]
+            var yyySort = ySort[i + 2]
+            var yyyySort = ySort[i + 3]
         // console.log(x[i],x[i+1],x[i+2],x[i+2])
 
         if (x[i] === x[i + 1] && x[i + 1] === x[i + 2] && x[i + 2] === x[i + 3]) {
@@ -183,9 +196,9 @@ function countScores2($pScore, array) {
             }
         }
 
-        else if (y[i] == yy && y[i + 1] == yyy && y[i + 2] == yyyy) {
+        else if (ySort[i] == yySort && ySort[i + 1] == yyySort && ySort[i + 2] == yyyySort) {
             if (z[i] + 1 == z[i+1] && z[i + 1] + 1 == z[i+2] && z[i + 2] + 1 == z[i+3]) {
-                
+               console.log(ySort[i]+"="+yySort+ "&&" + ySort[i + 1]+ "==" +yyySort+ "&&" +ySort[i + 2]+ "==" +yyyySort)
                 $('div').addClass("noclick")
                 $('div').removeClass('clickable nodisplay');
                 removeClickable () 
