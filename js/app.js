@@ -175,7 +175,19 @@ function countScores2($pScore, arr) {
         }
 
         else if (y[i] == yy && y[i + 1] == yyy && y[i + 2] == yyyy) {
-            console.log("hi" + y[i],yy, y[i + 1], yyy, y[i + 2], yyyy)
+
+            // console.log("hi" + y[i],yy, y[i + 1], yyy, y[i + 2], yyyy)
+            // console.log(x.join().replace(/,/g, ''))
+
+            var compressed = x.join().replace(/,/g, '');
+            console.log(compressed)
+            
+            if ("ABCDEF".indexOf(compressed) >= 0) {
+                    alert("hi")
+            }
+
+
+
         }
 
 
