@@ -27,7 +27,7 @@ function makeDivs() {
             var $thisID = $(this).attr('id');
             console.log(counter)
 
-            $(this).append(`<div id = ${$thisID}${counter}${sectionIndex}></div>`)
+            $(this).append(`<div id = ${$thisID}${counter}${sectionIndex} class="noclick"></div>`)
 
             // var $getDivs = $(this).find("div");
             // $getDivs.each(function(index){
@@ -67,13 +67,11 @@ function activateTop() { //makes the div on top clickable
     // console.log($("div[id*='6']"))
     var $a = $("div[id*='6']");
 
-    if (!$('#p2Score').hasClass('congratulations')) {
 
         $($a).each(function(index) {
             $(this).removeClass('noclick')
         })
 
-    }
     nowClickable();
 
 
