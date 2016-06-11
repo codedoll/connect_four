@@ -35,7 +35,7 @@ function activateTop() {
     // console.log($("div[id*='6']"))
     var $a = $("div[id*='6']");
 
-    if (!$('#p2Score    ').hasClass('congratulations')){
+    if (!$('#p2Score').hasClass('congratulations')){
 
     $($a).each(function(index) {
         $(this).removeClass('noclick')
@@ -189,9 +189,7 @@ function countScores2($pScore, array) {
 
             if (y[i] + 1 == yy && y[i + 1] + 1 == yyy && y[i + 2] + 1 == yyyy) {
                 
-                $('div').addClass("noclick")
-                $('div').removeClass('clickable nodisplay');
-                // removeClickable () 
+
                 counter++;
                 console.log(arr)
                 youWon(arr,$pScore)
@@ -201,12 +199,10 @@ function countScores2($pScore, array) {
                 if (arr===p1Click){
                 $($pScore).html("<span class='blue fade-in won'>you won blue</span>");
                 $('div').removeClass('clickable nodisplay');
-                removeClickable ()
                 }
                 else if (arr===p2Click) {
                 $($pScore).html("<span class='red fade-in won'>you won red</span>");
                 $('div').removeClass('clickable nodisplay');
-                removeClickable ()
                 }
 
             }
@@ -216,9 +212,6 @@ function countScores2($pScore, array) {
         if (ySort[i] == yySort && ySort[i + 1] == yyySort && ySort[i + 2] == yyyySort) {
             if (z[i] + 1 == z[i+1] && z[i + 1] + 1 == z[i+2] && z[i + 2] + 1 == z[i+3]) {
                console.log(ySort[i]+"="+yySort+ "&&" + ySort[i + 1]+ "==" +yyySort+ "&&" +ySort[i + 2]+ "==" +yyyySort)
-                $('div').addClass("noclick")
-                $('div').removeClass('clickable nodisplay');
-                removeClickable () 
                 counter++;
                 youWon(arr,$pScore)
 
@@ -276,28 +269,23 @@ function countScores2($pScore, array) {
 
 
 function youWon(arr,$pScore) {
+                $('div').addClass("noclick")
+                $('div').removeClass('clickable nodisplay');
+
                 $('#whoseturn').html('congratulations!');
                 $('#whoseturn').addClass('won')
 
                 if (arr===p1Click){
                 $($pScore).html("<span class='blue fade-in won'>you won blue</span>");
                 $('div').removeClass('clickable nodisplay');
-                removeClickable ()
                 }
                 else if (arr===p2Click) {
                 $($pScore).html("<span class='red fade-in won'>you won red</span>");
                 $('div').removeClass('clickable nodisplay');
-                removeClickable ()
                 }
                 // console.log(y[i]+1,yy)
                 // console.log(y[i+1]+1,yyy)
                 // console.log(y[i+2]+1,yyyy)
                 //  console.log(y[i],y[i+1],y[i+2],y[i+3])
                 
-}
-
-
-
-function removeClickable () {
-    $('body').removeClass('clickable')
 }
