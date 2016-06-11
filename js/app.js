@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
-    makeDivs();
 
+    makeDivs();
 
 })
 
@@ -9,7 +9,7 @@ $(document).ready(function() {
 var p1Click = [];
 var p2Click = [];
 
-var turnTracker = 0;
+var turnTracker = 0; //looks at whose turn it is
 
 
 function makeDivs() {
@@ -20,28 +20,24 @@ function makeDivs() {
         $(this).html($idValue) //outputs it on html so that I can see the id of the div
         $(this).addClass('noclick')
 
-        //  $(this).on("click", function(e) {
-        //      $(this).addClass('clicked')
-        // });
-
     })
 
     activateTop();
 }
 
 
-function activateTop() {
+function activateTop() { //makes the div on top clickable
 
     // console.log($("div[id*='6']"))
     var $a = $("div[id*='6']");
 
-    if (!$('#p2Score').hasClass('congratulations')){
+    if (!$('#p2Score').hasClass('congratulations')) {
 
-    $($a).each(function(index) {
-        $(this).removeClass('noclick')
-    })
+        $($a).each(function(index) {
+            $(this).removeClass('noclick')
+        })
 
-    }   
+    }
     nowClickable();
 
 
@@ -75,7 +71,7 @@ function nowClickable() {
             p1Click.push($(this).attr("id"))
 
             var $p1Score = $('#p1Score')
-                        $('#turn').removeClass('blue')
+            $('#turn').removeClass('blue')
 
             $('#turn').html('red')
             $('#turn').addClass('red')
@@ -113,12 +109,12 @@ function highlightGuyOnBottom($this) {
 
     // console.log(arr)
     // console.log(arr[arr.length - 1])
-if (!$('#whoseturn').hasClass('won')){
+    if (!$('#whoseturn').hasClass('won')) {
 
-    var lastElement = arr[arr.length - 1]
-    $(`#${lastElement}`).addClass('clickable')
-    $(`#${lastElement}`).removeClass('noclick')
-}
+        var lastElement = arr[arr.length - 1]
+        $(`#${lastElement}`).addClass('clickable')
+        $(`#${lastElement}`).removeClass('noclick')
+    }
 
 }
 
@@ -143,7 +139,7 @@ function countScores2($pScore, array) {
         var a = arr[i];
         var aa = a.charAt(0)
         var bb = a.charAt(1)
-        var cc = a.substring(a.length-2)
+        var cc = a.substring(a.length - 2)
 
         x.push(aa)
         y.push(bb)
@@ -158,7 +154,7 @@ function countScores2($pScore, array) {
 
 
     }
-    
+
     console.log("x array: " + x)
     console.log("y array: " + y)
     console.log("z array: " + z)
@@ -166,7 +162,7 @@ function countScores2($pScore, array) {
     console.log("ySort: " + ySort)
     console.log("zSort: " + zSort)
 
-    console.log("i is "+ i)
+    console.log("i is " + i)
     var i = 0;
 
     var counter = 0;
@@ -175,36 +171,36 @@ function countScores2($pScore, array) {
 
 
     for (i = 0; i < arr.length - 3; i++) {
-            
-            var yy = y[i + 1]
-            var yyy = y[i + 2]
-            var yyyy = y[i + 3]
 
-            var yySort = ySort[i + 1]
-            var yyySort = ySort[i + 2]
-            var yyyySort = ySort[i + 3]
-        // console.log(x[i],x[i+1],x[i+2],x[i+2])
+        var yy = y[i + 1]
+        var yyy = y[i + 2]
+        var yyyy = y[i + 3]
+
+        var yySort = ySort[i + 1]
+        var yyySort = ySort[i + 2]
+        var yyyySort = ySort[i + 3]
+            // console.log(x[i],x[i+1],x[i+2],x[i+2])
 
         if (x[i] === x[i + 1] && x[i + 1] === x[i + 2] && x[i + 2] === x[i + 3]) {
 
             if (y[i] + 1 == yy && y[i + 1] + 1 == yyy && y[i + 2] + 1 == yyyy) {
-                
+
 
                 counter++;
                 console.log(arr)
-                youWon(arr,$pScore)
+                youWon(arr, $pScore)
 
 
 
             }
         }
 
-        
+
         if (ySort[i] == yySort && ySort[i + 1] == yyySort && ySort[i + 2] == yyyySort) {
-            if (z[i] + 1 == z[i+1] && z[i + 1] + 1 == z[i+2] && z[i + 2] + 1 == z[i+3]) {
-               // console.log(ySort[i]+"="+yySort+ "&&" + ySort[i + 1]+ "==" +yyySort+ "&&" +ySort[i + 2]+ "==" +yyyySort)
+            if (z[i] + 1 == z[i + 1] && z[i + 1] + 1 == z[i + 2] && z[i + 2] + 1 == z[i + 3]) {
+                // console.log(ySort[i]+"="+yySort+ "&&" + ySort[i + 1]+ "==" +yyySort+ "&&" +ySort[i + 2]+ "==" +yyyySort)
                 counter++;
-                youWon(arr,$pScore)
+                youWon(arr, $pScore)
 
             }
         }
@@ -228,7 +224,7 @@ function countScores2($pScore, array) {
 
         //     var compressed = x.join().replace(/,/g, '');
         //     console.log(compressed)
-            
+
         //     if ("ABCDEF".indexOf(compressed) >= 0) {
         //         counter++
         //         $($pScore).html(counter);
@@ -236,7 +232,7 @@ function countScores2($pScore, array) {
         //         return compressed;
         //     }
         // }
-    
+
     }
 
     // DEREK NOTES
@@ -259,26 +255,25 @@ function countScores2($pScore, array) {
 }
 
 
-function youWon(arr,$pScore) {
-                $('div').addClass("noclick")
-                $('div').removeClass('clickable nodisplay');
+function youWon(arr, $pScore) {
+    $('div').addClass("noclick")
+    $('div').removeClass('clickable nodisplay');
 
-                $('#whoseturn').html('congratulations!');
-                $('#whoseturn').addClass('won')
+    $('#whoseturn').html('congratulations!');
+    $('#whoseturn').addClass('won')
 
 
 
-                if (arr===p1Click){
-                $($pScore).html("<span class='blue fade-in won'>you won blue</span>");
-                $('div').removeClass('clickable nodisplay');
-                }
-                else if (arr===p2Click) {
-                $($pScore).html("<span class='red fade-in won'>you won red</span>");
-                $('div').removeClass('clickable nodisplay');
-                }
-                // console.log(y[i]+1,yy)
-                // console.log(y[i+1]+1,yyy)
-                // console.log(y[i+2]+1,yyyy)
-                //  console.log(y[i],y[i+1],y[i+2],y[i+3])
-                
+    if (arr === p1Click) {
+        $($pScore).html("<span class='blue fade-in won'>blue won</span>");
+        $('div').removeClass('clickable nodisplay');
+    } else if (arr === p2Click) {
+        $($pScore).html("<span class='red fade-in won'>red won</span>");
+        $('div').removeClass('clickable nodisplay');
+    }
+    // console.log(y[i]+1,yy)
+    // console.log(y[i+1]+1,yyy)
+    // console.log(y[i+2]+1,yyyy)
+    //  console.log(y[i],y[i+1],y[i+2],y[i+3])
+
 }
