@@ -194,16 +194,7 @@ function countScores2($pScore, array) {
                 console.log(arr)
                 youWon(arr,$pScore)
 
-                $('#whoseturn').html('congratulations!');
 
-                if (arr===p1Click){
-                $($pScore).html("<span class='blue fade-in won'>you won blue</span>");
-                $('div').removeClass('clickable nodisplay');
-                }
-                else if (arr===p2Click) {
-                $($pScore).html("<span class='red fade-in won'>you won red</span>");
-                $('div').removeClass('clickable nodisplay');
-                }
 
             }
         }
@@ -211,7 +202,7 @@ function countScores2($pScore, array) {
         
         if (ySort[i] == yySort && ySort[i + 1] == yyySort && ySort[i + 2] == yyyySort) {
             if (z[i] + 1 == z[i+1] && z[i + 1] + 1 == z[i+2] && z[i + 2] + 1 == z[i+3]) {
-               console.log(ySort[i]+"="+yySort+ "&&" + ySort[i + 1]+ "==" +yyySort+ "&&" +ySort[i + 2]+ "==" +yyyySort)
+               // console.log(ySort[i]+"="+yySort+ "&&" + ySort[i + 1]+ "==" +yyySort+ "&&" +ySort[i + 2]+ "==" +yyyySort)
                 counter++;
                 youWon(arr,$pScore)
 
@@ -274,6 +265,8 @@ function youWon(arr,$pScore) {
 
                 $('#whoseturn').html('congratulations!');
                 $('#whoseturn').addClass('won')
+
+
 
                 if (arr===p1Click){
                 $($pScore).html("<span class='blue fade-in won'>you won blue</span>");
