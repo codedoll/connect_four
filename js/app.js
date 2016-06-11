@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
     makeDivs();
 
 })
@@ -14,13 +13,51 @@ var turnTracker = 0; //looks at whose turn it is
 
 function makeDivs() {
 
-    $('div').each(function(index) {
+    var $allSections = $('#gameboard').find("section");
+    $sectionID = $allSections.attr('id');
+    var counter = 1;
 
-        var $idValue = $(this).attr('id'); //Gets the id of the div
-        $(this).html($idValue) //outputs it on html so that I can see the id of the div
-        $(this).addClass('noclick')
+    $allSections.each(function(index){
+        // console.log($allSections.length)
+        for (var i = 0; i < 6; i++) {
+        
+        console.log($(this).index('section'))
+        var sectionIndex = $(this).index('section')
+
+        var $thisID = $(this).attr('id');
+        console.log(counter)
+        
+        $(this).append(`<div id = ${$thisID}${counter}${sectionIndex}></div>`)
+
+            // var $getDivs = $(this).find("div");
+            // $getDivs.each(function(index){
+            //     $(this).attr("id")
+            // })
+        // var letter = ["A","B","C","D","E","F"];
+
+
+        //                 console.log(i)
+        //                 console.log(letter[i])
+
+                        // $(this).attr('id',`${letter[index]}`)
+       if (counter<6){             
+         counter++;
+        }
+    else{
+        counter=1;  
+        }
+    }
 
     })
+
+
+    // $('div').each(function(index) {
+
+    //     var $idValue = $(this).attr('id'); //Gets the id of the div
+    //     $(this).html($idValue) //outputs it on html so that I can see the id of the div
+    //     $(this).addClass('noclick')
+
+    // })
 
     activateTop();
 }
