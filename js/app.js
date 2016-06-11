@@ -17,36 +17,35 @@ function makeDivs() {
     $sectionID = $allSections.attr('id');
     var counter = 1;
 
-    $allSections.each(function(index){
+    $allSections.each(function(index) {
         // console.log($allSections.length)
         for (var i = 0; i < 6; i++) {
-        
-        console.log($(this).index('section'))
-        var sectionIndex = $(this).index('section')
 
-        var $thisID = $(this).attr('id');
-        console.log(counter)
-        
-        $(this).append(`<div id = ${$thisID}${counter}${sectionIndex}></div>`)
+            console.log($(this).index('section'))
+            var sectionIndex = $(this).index('section')
+
+            var $thisID = $(this).attr('id');
+            console.log(counter)
+
+            $(this).append(`<div id = ${$thisID}${counter}${sectionIndex}></div>`)
 
             // var $getDivs = $(this).find("div");
             // $getDivs.each(function(index){
             //     $(this).attr("id")
             // })
-        // var letter = ["A","B","C","D","E","F"];
+            // var letter = ["A","B","C","D","E","F"];
 
 
-        //                 console.log(i)
-        //                 console.log(letter[i])
+            //                 console.log(i)
+            //                 console.log(letter[i])
 
-                        // $(this).attr('id',`${letter[index]}`)
-       if (counter<6){             
-         counter++;
+            // $(this).attr('id',`${letter[index]}`)
+            if (counter < 6) {
+                counter++;
+            } else {
+                counter = 1;
+            }
         }
-    else{
-        counter=1;  
-        }
-    }
 
     })
 
