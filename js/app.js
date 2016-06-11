@@ -113,10 +113,12 @@ function highlightGuyOnBottom($this) {
 
     // console.log(arr)
     // console.log(arr[arr.length - 1])
+if (!$('#whoseturn').hasClass('won')){
 
     var lastElement = arr[arr.length - 1]
     $(`#${lastElement}`).addClass('clickable')
     $(`#${lastElement}`).removeClass('noclick')
+}
 
 }
 
@@ -275,6 +277,7 @@ function countScores2($pScore, array) {
 
 function youWon(arr,$pScore) {
                 $('#whoseturn').html('congratulations!');
+                $('#whoseturn').addClass('won')
 
                 if (arr===p1Click){
                 $($pScore).html("<span class='blue fade-in won'>you won blue</span>");
