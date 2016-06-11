@@ -164,14 +164,15 @@ function countScores2($pScore, array) {
     console.log("ySort: " + ySort)
     console.log("zSort: " + zSort)
 
-
+    console.log("i is "+ i)
+    var i = 0;
 
     var counter = 0;
     var array1 = [];
     var r = 0;
 
 
-    for (var i = 0; i < x.length - 3; i++) {
+    for (i = 0; i < arr.length - 3; i++) {
             
             var yy = y[i + 1]
             var yyy = y[i + 2]
@@ -188,15 +189,29 @@ function countScores2($pScore, array) {
                 
                 $('div').addClass("noclick")
                 $('div').removeClass('clickable nodisplay');
-                removeClickable () 
+                // removeClickable () 
                 counter++;
                 console.log(arr)
                 youWon(arr,$pScore)
 
+                $('#whoseturn').html('congratulations!');
+
+                if (arr===p1Click){
+                $($pScore).html("<span class='blue fade-in won'>you won blue</span>");
+                $('div').removeClass('clickable nodisplay');
+                removeClickable ()
+                }
+                else if (arr===p2Click) {
+                $($pScore).html("<span class='red fade-in won'>you won red</span>");
+                $('div').removeClass('clickable nodisplay');
+                removeClickable ()
+                }
+
             }
         }
 
-        else if (ySort[i] == yySort && ySort[i + 1] == yyySort && ySort[i + 2] == yyyySort) {
+        
+        if (ySort[i] == yySort && ySort[i + 1] == yyySort && ySort[i + 2] == yyyySort) {
             if (z[i] + 1 == z[i+1] && z[i + 1] + 1 == z[i+2] && z[i + 2] + 1 == z[i+3]) {
                console.log(ySort[i]+"="+yySort+ "&&" + ySort[i + 1]+ "==" +yyySort+ "&&" +ySort[i + 2]+ "==" +yyyySort)
                 $('div').addClass("noclick")
