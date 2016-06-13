@@ -41,8 +41,8 @@ The diagonal evaluation was in the works until the bug on the vertical evaluatio
 Resources
 --------------------------------
 **CSS**
- - Fade-in tutorial -http://codepen.io/bluehaus/pen/EfGyi
- - Animation loop - http://www.alessioatzeni.com/blog/css3-loading-animation-loop
+ - [Fade-in tutorial] (http://codepen.io/bluehaus/pen/EfGyi)
+ - [Animation loop] (http://www.alessioatzeni.com/blog/css3-loading-animation-loop)
  
 **Javascript**
  - [Remove class jquery](http://stackoverflow.com/questions/14532327/odd-issue-with-jquery-removeclass-not-doing-anything) 
