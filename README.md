@@ -41,10 +41,10 @@ The diagonal evaluation was in the works until the bug on the vertical evaluatio
 Resources
 --------------------------------
 **CSS**
-
  - Fade-in tutorial -http://codepen.io/bluehaus/pen/EfGyi
  - Animation loop - http://www.alessioatzeni.com/blog/css3-loading-animation-loop
- - **Javascript**
+ 
+**Javascript**
  - [Remove class jquery](http://stackoverflow.com/questions/14532327/odd-issue-with-jquery-removeclass-not-doing-anything) 
  - [Undefined values in jquery](http://stackoverflow.com/questions/19807953/why-are-some-values-in-my-array-undefined)
  - [Get all elements in jquery](http://stackoverflow.com/questions/9815677/get-all-div-or-any-element-in-a-page-with-jquery)
